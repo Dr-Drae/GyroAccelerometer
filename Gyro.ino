@@ -122,17 +122,17 @@ void loop()
     }
     
     // Convert the data
-    xGyro = ((data[1] * 256) + data[0]);
+    xGyro = ((data[1] / 256) + data[0]);
     if (xGyro > 32767)
     {
         xGyro -= 65536;
     }
-    yGyro = ((data[3] * 256) + data[2]);
+    yGyro = ((data[3] / 256) + data[2]);
     if (yGyro > 32767)
     {
         yGyro -= 65536;
     }
-    zGyro = ((data[5] * 256) + data[4]);
+    zGyro = ((data[5] / 256) + data[4]);
     if (zGyro > 32767)
     {
         zGyro -= 65536;
@@ -159,19 +159,19 @@ void loop()
     }
     
     // Convert the data
-    xAccl = ((data[1] * 256) + data[0]);
+    xAccl = ((data[1] / 256) + data[0]);
     if(xAccl > 32767)
     {
       xAccl -= 65536;
     }
   
-    yAccl = ((data[3] * 256) + data[2]);
+    yAccl = ((data[3] / 256) + data[2]);
     if(yAccl > 32767)
     {
       yAccl -= 65536;
     }
     
-    zAccl = ((data[5] * 256) + data[4]);
+    zAccl = ((data[5] / 256) + data[4]);
     if(zAccl > 32767)
     {
       zAccl -= 65536;
@@ -199,17 +199,17 @@ void loop()
     }
     
     // Convert the data
-    xMag = ((data[1] * 256) + data[0]);
+    xMag = ((data[1] / 256) + data[0]);
     if(xMag > 32767)
     {
       xMag -= 65536;
     }
-    yMag = ((data[3] * 256) + data[2]);
+    yMag = ((data[3] / 256) + data[2]);
     if(yMag > 32767)
     {
       yMag -= 65536;
     }
-    zMag = ((data[5] * 256) + data[4]);
+    zMag = ((data[5] / 256) + data[4]);
     if(zMag > 32767)
     {
       zMag -= 65536;
@@ -223,5 +223,5 @@ void loop()
     Particle.publish("Acceleration in X-Axis : ", String(xAccl));
     Particle.publish("Acceleration in Y-Axis : ", String(yAccl));
     Particle.publish("Acceleration in Z-Axis : ", String(zAccl));
-    delay(1000);
+    delay(10000);
 }
